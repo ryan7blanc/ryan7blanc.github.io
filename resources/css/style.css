@@ -1,0 +1,45 @@
+h1{
+    color: black;
+}
+
+i{
+    color: blue;
+}
+
+f{
+    color: green;
+    margin-left: 990px;
+}
+
+.nav-link{
+    color: black;
+}
+
+p.indent{
+    text-indent: 30px;
+}
+
+.carousel-inner {
+    width: 500px;
+    height: 660px;
+    margin-left: 400px;
+}
+
+footer {
+    position: fixed
+}
+
+body {
+    font-family: "Arial", sans-serif; /* Default font */
+}
+
+/* Specify a font that supports Japanese characters */
+@font-face {
+    font-family: "Noto Sans JP";
+    src: url(https://fonts.gstatic.com/s/notosansjp/v109/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
+}
+
+/* Apply the font to the content */
+.content {
+    font-family: "Noto Sans JP", Arial, sans-serif;
+}

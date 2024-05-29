@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <meta charset="UTF-8">
+    <title>louisryanblanc.com</title>
+    <style>
+      body {
+        display: flex;
+      }
+      .sidebar {
+        height: 100vh;
+        position: fixed;
+        width: 200px;
+        background-color: #f8f9fa;
+      }
+      .sidebar .nav-link {
+        color: #007bff;
+        transition: transform 0.3s ease; /* Add transition effect */
+      }
+      .sidebar .nav-link:hover {
+        transform: scale(1.1); /* Enlarge on hover */
+      }
+      .content {
+        margin-left: 200px;
+        padding: 20px;
+        width: calc(100% - 200px);
+      }
+      .dynamic-text {
+        display: inline-block;
+        color: #007bff;
+        font-weight: bold;
+      }
+      .no-indent {
+        margin: 0; /* Remove margin to fix indentation */
+      }
+      .footer {
+        padding: 20px;
+        margin-top: auto;
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language switch links -->
+
+    <div class="sidebar d-flex flex-column">
+      <nav class="navbar navbar-expand-lg navbar-light flex-column align-items-start">
+        <a class="navbar-brand" href="#">lrb.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-column align-items-start" id="navbarNavAltMarkup">
+          <div class="navbar-nav flex-column align-items-start">
+            <a id="home-link" class="nav-link" href="../views/index.html">Home</a>
+            <a id="hobbies-link" class="nav-link" href="../views/hobbies.html">Hobbies</a>
+            <a id="projects-link" class="nav-link" href="../views/projects.html">Projects</a>
+            <a id="resume-link" class="nav-link" href="../views/resume.html">Resume</a>
+
+          </div>
+        </div>
+      </nav>
+      <div>
+        <button id="switch-to-english">English</button>
+        <button id="switch-to-japanese">日本語</button>
+      </div>
+      <div class="footer">
+        <p class="no-indent">Connect with me!</p>
+        <ul class="list-unstyled d-flex justify-content-center">
+          <li class="ms-3"><a class="text-dark" href="https://www.linkedin.com/in/louis-ryan-blanc-78573a20a"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a></li>
+          <li class="ms-3"><a class="text-dark" href="https://twitter.com/ryan5bl"><i class="bi bi-twitter" style="font-size: 1.5rem;"></i></a></li>
+          <li class="ms-3"><a class="text-dark" href="https://github.com/ryan7blanc"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="content">
+      <!-- English content -->
+      <div id="english-content">
+        <h1>Hi! I'm Louis Ryan Blanc!</h1>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <img id="profile-image" src="../pics/IMG_7210.jpeg" class="img-fluid rounded" alt="Profile Picture" style="width: 500px;">
+          </div>
+          <div class="col-md-6">
+            <h3>Nice to meet you! I am a <span class="dynamic-text">student</span>.</h3>
+            <p style="text-indent: 20px;">I am a 20 year old student at the University of Colorado Boulder majoring in Computer Science with a completed minor in Japanese.</p>
+            <p style="text-indent: 20px;">I am also President of the Japanese Student Association on campus and have a work-study at the University Library.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Japanese content -->
+      <div class="content" id="japanese-content" style="display: none;">
+        <h1>こんにちは！ブロンクライアンと申します！</h1>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <img id="profile-image" src="../pics/IMG_7210.jpeg" class="img-fluid rounded" alt="プロフィール写真" style="width: 500px;">
+          </div>
+          <div class="col-md-6">
+            <h3>はじめまして！私は<span class="dynamic-text">学生</span>です。</h3>
+            <p style="text-indent: 20px;">私はコンピューターサイエンスを専攻し、日本語を副専攻している、コロラド大学ボルダー校の20歳の学生です。</p>
+            <p style="text-indent: 20px;">私はキャンパスの日本学生協会の会長を務めており、大学図書館でワークスタディをしています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      const messages = ["student", "bilingual", "leader", "bodybuilder"];
+      const images = [
+        "../pics/IMG_3483.jpeg",
+        "../pics/IMG_7614.jpeg",
+        "../pics/IMG_7357.jpeg",
+        "../pics/IMG_7842.jpeg"
+      ];
+      let messageIndex = 0;
+
+      function changeMessageAndImage() {
+        const dynamicTextElement = document.querySelector('.dynamic-text');
+        const profileImageElement = document.getElementById('profile-image');
+        dynamicTextElement.textContent = messages[messageIndex];
+        profileImageElement.src = images[messageIndex];
+        messageIndex = (messageIndex + 1) % messages.length;
+      }
+
+      setInterval(changeMessageAndImage, 2000); // Change message and image every 2 seconds
+    </script>
+
+    <script>
+      // Get the current URL pathname
+      const path = window.location.pathname;
+    
+      // Extract the page name from the URL
+      const pageName = path.split('/').pop().split('.')[0];
+    
+      // Define an object that maps page names to their corresponding link ids
+      const pageLinkIds = {
+        'index': 'home-link',
+        'hobbies': 'hobbies-link',
+        'projects': 'projects-link',
+        'resume': 'resume-link'
+      };
+    
+      // Get the id of the link corresponding to the current page
+      const currentLinkId = pageLinkIds[pageName];
+    
+      // Set the color of all links to blue
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.style.color = '#007bff';
+      });
+    
+      // Set the color of the active link to black
+      document.getElementById(currentLinkId).style.color = '#000000';
+    </script>
+
+    <script>
+      // Function to switch the language to English
+      function switchToEnglish() {
+        // Change sidebar links to English
+        document.getElementById('home-link').textContent = 'Home';
+        document.getElementById('hobbies-link').textContent = 'Hobbies';
+        document.getElementById('projects-link').textContent = 'Projects';
+        document.getElementById('resume-link').textContent = 'Resume';
+    
+        // Change content to English
+        document.querySelector('.content h1').textContent = "Hi! I'm Louis Ryan Blanc!";
+        document.querySelector('.content h3').textContent = 'Nice to meet you! I am a student.';
+        document.querySelector('.content p:nth-of-type(1)').textContent = 'I am a 20 year old student at the University of Colorado Boulder majoring in Computer Science with a completed minor in Japanese.';
+        document.querySelector('.content p:nth-of-type(2)').textContent = 'I am also President of the Japanese Student Association on campus and have a work-study at the University Library.';
+      }
+    
+      // Function to switch the language to Japanese
+      function switchToJapanese() {
+        // Change sidebar links to Japanese
+        document.getElementById('home-link').textContent = 'ホーム';
+        document.getElementById('hobbies-link').textContent = '趣味';
+        document.getElementById('projects-link').textContent = 'プロジェクト';
+        document.getElementById('resume-link').textContent = '履歴書';
+    
+        // Change content to Japanese
+        document.querySelector('.content h1').textContent = "こんにちは！ブロンクライアンと申します！";
+        document.querySelector('.content h3').textContent = 'はじめまして！ 私は学生です。';
+        document.querySelector('.content p:nth-of-type(1)').textContent = '私はコンピューターサイエンスを専攻し、日本語のマイナーを修了した、コロラド大学ボルダー校の20歳の学生です。';
+        document.querySelector('.content p:nth-of-type(2)').textContent = 'また、キャンパスの日本学生協会の会長を務め、大学図書館でアルバイトをしています。';
+      }
+    
+      // Add event listeners to the language switch buttons
+      document.getElementById('switch-to-english').addEventListener('click', switchToEnglish);
+      document.getElementById('switch-to-japanese').addEventListener('click', switchToJapanese);
+    </script>
+    
+  </body>
+</html>

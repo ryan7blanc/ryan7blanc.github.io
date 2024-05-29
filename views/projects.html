@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <title>louisryanblanc.com</title>
+    <style>
+      body {
+        display: flex;
+      }
+      .sidebar {
+        height: 100vh;
+        position: fixed;
+        width: 200px;
+        background-color: #f8f9fa;
+      }
+      .sidebar .nav-link {
+        color: #007bff;
+        transition: transform 0.3s ease; /* Add transition effect */
+      }
+      .sidebar .nav-link:hover {
+        transform: scale(1.1); /* Enlarge on hover */
+      }
+      .content {
+        margin-left: 200px;
+        padding: 20px;
+        width: calc(100% - 200px);
+      }
+      .dynamic-text {
+        display: inline-block;
+        color: #007bff;
+        font-weight: bold;
+      }
+      .no-indent {
+        margin: 0; /* Remove margin to fix indentation */
+      }
+      .footer {
+        padding: 20px;
+        margin-top: auto;
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar d-flex flex-column">
+      <nav class="navbar navbar-expand-lg navbar-light flex-column align-items-start">
+        <a class="navbar-brand" href="#">lrb.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-column align-items-start" id="navbarNavAltMarkup">
+          <div class="navbar-nav flex-column align-items-start">
+            <a id="home-link" class="nav-link" href="../views/index.html">Home</a>
+            <a id="hobbies-link" class="nav-link" href="../views/hobbies.html">Hobbies</a>
+            <a id="projects-link" class="nav-link" href="../views/projects.html">Projects</a>
+            <a id="resume-link" class="nav-link" href="../views/resume.html">Resume</a>
+          </div>
+        </div>
+      </nav>
+      <div class="footer">
+        <p class="no-indent">Connect with me!</p>
+        <ul class="list-unstyled d-flex justify-content-center">
+          <li class="ms-3"><a class="text-dark" href="https://www.linkedin.com/in/louis-ryan-blanc-78573a20a"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a></li>
+          <li class="ms-3"><a class="text-dark" href="https://twitter.com/ryan5bl"><i class="bi bi-twitter" style="font-size: 1.5rem;"></i></a></li>
+          <li class="ms-3"><a class="text-dark" href="https://github.com/ryan7blanc"><i class="bi bi-github" style="font-size: 1.5rem;"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Ryan's Projects</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><a href="https://github.com/ryan7blanc/dungeonescape.git">Dungeon Escape</a></th>
+            <td>RPG run in the terminal. User can interact by moving around the map, fight enemies and solve puzzles, and take care of crew members with a goal to reach the boss.</td>
+          </tr>
+          <tr>
+            <th><a href="https://github.com/ryan7blanc/IMDB.git">IMDB Implementation</a></th>
+            <td>Mock IMDB database using C++ HashMaps and SkipLists.</td>
+          </tr>
+          <tr>
+            <th><a href="https://github.com/ryan7blanc/ezshop.git">EZ Shop</a></th>
+            <td>Shopping website using Front-end, PostgreSQL, and Node.js API.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      // Get the current URL pathname
+      const path = window.location.pathname;
+    
+      // Extract the page name from the URL
+      const pageName = path.split('/').pop().split('.')[0];
+    
+      // Define an object that maps page names to their corresponding link ids
+      const pageLinkIds = {
+        'index': 'home-link',
+        'hobbies': 'hobbies-link',
+        'projects': 'projects-link',
+        'resume': 'resume-link'
+      };
+    
+      // Get the id of the link corresponding to the current page
+      const currentLinkId = pageLinkIds[pageName];
+    
+      // Set the color of all links to blue
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.style.color = '#007bff';
+      });
+    
+      // Set the color of the active link to black
+      document.getElementById(currentLinkId).style.color = '#000000';
+    </script>
+    
+  </body>
+</html>
